@@ -18,8 +18,8 @@ import seaborn as sns
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--title', type=str, default='@Microsoft')
-    parser.add_argument('--tweet_count', type=int, default=500)
+    parser.add_argument('-t','--title', type=str, default='@Microsoft')
+    parser.add_argument('-n','--tweet_count', type=int, default=500)
     return parser.parse_args()
 
 
@@ -52,7 +52,9 @@ def lemmatize(text):
 
 
 def preprocess_tweets():
-    # remove punctuations & also remove tweets with less than 3 chars
+    # remove punctuations, urls, usernames & also remove tweets with less than 3 chars
+    df['tweet'] = df['tweet'].str.replace(r'@[^\s]+', '', regex=True)
+    df['tweet'] = df['tweet'].str.replace(r'http\S+', '', regex=True)
     df['tweet'] = df['tweet'].str.replace('[^a-zA-Z0-9]', ' ', regex=True)
     df['tweet'] = df['tweet'].apply(lambda x: ' '.join ([w for w in x.split() if len (w)>3]))
     # tokenize
@@ -88,14 +90,25 @@ flat_data_list = [item for sublist in data_list for item in sublist]
 data_count = pd.DataFrame(flat_data_list)
 data_count = data_count[0].value_counts()
 
-# remove "http" and the title from data_count
-data_count = data_count.drop(["http", title.lower().replace('@', '')], axis=0)
+# remove the title from data_count if their count is maximum
+if title.lower().replace('@', '') in data_count.index:
+    data_count = data_count.drop(title.lower().replace('@', ''))
 
-# visualize the word frequency count
-data_count = data_count[:20,]
-plt.figure(figsize=(10,5))
-sns.barplot(x = data_count.values, y = data_count.index)
-plt.title("Most frequent words in tweets")
-plt.ylabel("Word", fontsize=12)
-plt.xlabel("Count", fontsize=12)
-plt.show()
+# only show the words that have count more than 10% of the number of tweets
+topics_list = []
+for i in range(len(data_count)):
+    if(data_count.values[i] >= tweet_count*0.1):
+        topics_list.append(data_count.index[i])
+    else:
+        break
+print(topics_list[:5])
+
+# plt.figure(figsize=(10,5))
+# sns.barplot(x = data_count.values, y = data_count.index)
+# plt.title("Most frequent words in tweets")
+# plt.ylabel("Word", fontsize=12)
+# plt.xlabel("Count", fontsize=12)
+# plt.show()
+
+# remove csv file after use
+os.remove(title + ".csv")
