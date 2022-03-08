@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# finding trends using frequency analysis
+find_company_trends.py
