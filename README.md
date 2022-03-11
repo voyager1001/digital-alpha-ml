@@ -25,3 +25,13 @@
     - Input: The input to the file is the company title and the number of tweets we want to extract
     - Output: The output of the file is the top 5 topics relevant to the company
 
+5. extract_metrics_from_fillings.ipynb -> For extracting metrics from the fillings
+
+    - Input: The inputs are:
+        * `api_key` - for accessing the fillings using sec-api
+        * `url` - url to the filing
+        * `metric` - name of the metric in lowercase
+        * `val_type` - metric data type - one of ['PERCENT', 'MONEY', 'NUMBER', 'RATIO']
+        * `k` - window size for metric search, default = 6
+        * `relevant_sections` - list of sections to search for the metric
+    - Output: The output of the file is value of the metric extracted from the filing stored in `correct_value` variable
