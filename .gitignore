@@ -130,3 +130,7 @@ dmypy.json
 
 # finding trends using frequency analysis
 find_company_trends.py
+
+# Question answering using Allennlp
+
+question_answering.ipynb
