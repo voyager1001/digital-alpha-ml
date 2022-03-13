@@ -49,3 +49,15 @@
 
     - Input: The inputs are `table` and `ques` (a list of questions)
     - Output: The output of the file is the answers to the question based on the table
+
+8. theme-vocab-builder.ipynb -> To build vocabulary for various sectors
+
+    - Input: any important data file related to various sectors
+    - Output: The output of the file is the vocabulary file for various sectors 
+
+9. exposure-calc.ipynb -> to calculate the exposure of a company to various sectors
+
+    - Input: The inputs are - 
+        * 'filing.txt' - sec filing of a company
+        * 'theme.txt' - vocabulary file for a specific sector  
+    - Output: The output of the file is the similarity score with respect to the vocabulary of a specific sector 
