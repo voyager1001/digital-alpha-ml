@@ -20,10 +20,12 @@
     - Input: The input to the function is the `filing_url` and `section_name`, where the names have their usual meanings
     - Output: The output is obtained from the `get_section` function, which returns the desired section text
 
+
 4. find_company_trends_using_lda.py -> For extracting the latest trending topics relevant to the company
 
     - Input: The input to the file is the company title and the number of tweets we want to extract
     - Output: The output of the file is the top 5 topics relevant to the company
+
 
 5. extract_metrics_from_fillings.ipynb -> For extracting metrics from the fillings
 
@@ -35,3 +37,15 @@
         * `k` - window size for metric search, default = 6
         * `relevant_sections` - list of sections to search for the metric
     - Output: The output of the file is value of the metric extracted from the filing stored in `correct_value` variable
+
+
+6. extract_tables.ipynb -> For extracting tables from the fillings
+
+    - Input: The inputs are `api_key` for accessing the fillings using sec-api, `url` to the filing and the `section`
+    - Output: The output of the file is the tables extracted from the filing stored in `tables` variable
+
+
+7. qna_on_tables.ipynb -> For question answering on the tables
+
+    - Input: The inputs are `table` and `ques` (a list of questions)
+    - Output: The output of the file is the answers to the question based on the table
