@@ -58,6 +58,6 @@
 9. exposure-calc.ipynb -> to calculate the exposure of a company to various sectors
 
     - Input: The inputs are - 
-        * 'filing.txt' - sec filing of a company
-        * 'theme.txt' - vocabulary file for a specific sector  
+        * `filing.txt` - sec filing of a company
+        * `theme.txt` - vocabulary file for a specific sector  
     - Output: The output of the file is the similarity score with respect to the vocabulary of a specific sector 
