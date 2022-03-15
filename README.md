@@ -50,10 +50,12 @@
     - Input: The inputs are `table` and `ques` (a list of questions)
     - Output: The output of the file is the answers to the question based on the table
 
+
 8. theme-vocab-builder.ipynb -> To build vocabulary for various sectors
 
     - Input: any important data file related to various sectors
     - Output: The output of the file is the vocabulary file for various sectors 
+
 
 9. exposure-calc.ipynb -> to calculate the exposure of a company to various sectors
 
@@ -61,3 +63,15 @@
         * `filing.txt` - sec filing of a company
         * `theme.txt` - vocabulary file for a specific sector  
     - Output: The output of the file is the similarity score with respect to the vocabulary of a specific sector 
+
+
+10. generate_questions_answers.ipynb -> to generate questions and answers from the text given
+
+    - Input: The only input is the `text`
+    - Output: The output of the file is the generated questions and answers in the dictionary `qna_dict`
+
+
+11. summarize_text.ipynb -> to summarize the text given
+
+    - Input: The only input is the `text`
+    - Output: The output of the file is the summary of the text in the variable `summary`
