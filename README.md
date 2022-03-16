@@ -75,3 +75,8 @@
 
     - Input: The only input is the `text`
     - Output: The output of the file is the summary of the text in the variable `summary`
+
+12. 10Q_parser.ipynb -> For extracting contents(section wise)
+
+    - Input: The input to the function is the link of the filing and section number 
+    - Output: The output is obtained from the `parse_10q_filing` function, which returns the desired section text
