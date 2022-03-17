@@ -24,7 +24,7 @@
 4. find_company_trends_using_lda.py -> For extracting the latest trending topics relevant to the company
 
     - Input: The input to the file is the company title and the number of tweets we want to extract
-    - Output: The output of the file is the top 5 topics relevant to the company
+    - Output: The output of the file is a list of top keywords relevant to the company
 
 
 5. extract_metrics_from_fillings.ipynb -> For extracting metrics from the fillings

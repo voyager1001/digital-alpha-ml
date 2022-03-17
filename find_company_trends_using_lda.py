@@ -20,7 +20,7 @@ from gensim.models import Phrases, phrases
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-t','--title', type=str, default='@Microsoft')
-    parser.add_argument('-n','--tweet_count', type=int, default=500)
+    parser.add_argument('-n','--tweet_count', type=int, default=5000)
     return parser.parse_args()
 
 
@@ -109,14 +109,15 @@ flat_data_list = [[item for sublist in data_list for item in sublist]]
 dictionary = Dictionary(df.tweet)
 bow_corpus = [dictionary.doc2bow(tweet) for tweet in df['tweet']]
 
-tweets_lda = LdaMulticore(bow_corpus, num_topics = 5, id2word = dictionary, random_state = 1, passes=10)
+tweets_lda = LdaMulticore(bow_corpus, num_topics = 3, id2word = dictionary, random_state = 1, passes=10)
 topics = tweets_lda.show_topics()
-for topic in topics:
-    print("Topic: ", topic[0]+1)
+words = []
+for topic in topics[:1]:
     keywords = topic[1].split(" + ")
     for word in keywords:
-        print(word[6:] + ": " + word[0:5])
-    print()
+        if word[7:-1] not in args.title.lower():
+            words.append(word[7:-1])
+print(words)
 
 # remove csv file after use
 os.remove(title + ".csv")
