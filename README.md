@@ -76,7 +76,19 @@
     - Input: The only input is the `text`
     - Output: The output of the file is the summary of the text in the variable `summary`
 
+
 12. 10Q_parser.ipynb -> For extracting contents(section wise)
 
     - Input: The input to the function is the link of the filing and section number 
     - Output: The output is obtained from the `parse_10q_filing` function, which returns the desired section text
+
+
+13. find_metric.ipynb -> complete pipeline for extracting metrics from filings of a company
+
+    - Input: The inputs are - 
+        * `api_key` - for accessing the fillings using sec-api
+        * `company_cik` - cik of the cmopany
+        * `metric` - name of the metric in lowercase
+        * `val_type` - metric data type - one of ['PERCENT', 'MONEY', 'NUMBER', 'RATIO']
+        * `k` - window size for metric search, default = 6
+    - Output: The output of the file is `value` of the metric extracted from the filings
