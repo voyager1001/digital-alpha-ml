@@ -1,5 +1,7 @@
 # Digital-Alpha-ML
 
+The ML repository for the Problem Statement - **Digital Alpha SaaS Analyzer** at Inter IIT Tech Meet 10.0. The deployed version of the website can be found [here](https://digitalalpha.ml/)
+
 
 ### Files Description
 
